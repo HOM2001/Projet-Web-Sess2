@@ -1,0 +1,26 @@
+header, footer {
+    background-color: lightskyblue;
+
+}
+
+body {
+    text-align: center;
+
+}
+
+h1 {
+    color: black;
+
+}
+
+a {
+    text-decoration: none
+}
+
+.breaking {
+    background-color: coral
+}
+
+.other {
+    background-color: lightgrey
+}
