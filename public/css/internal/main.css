@@ -1,3 +1,6 @@
+html{
+    color : white;
+}
 header, footer {
     background-color: lightskyblue;
 
@@ -5,6 +8,7 @@ header, footer {
 
 body {
     text-align: center;
+
 
 }
 
@@ -24,3 +28,4 @@ a {
 .other {
     background-color: lightgrey
 }
+

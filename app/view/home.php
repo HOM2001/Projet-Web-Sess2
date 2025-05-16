@@ -24,34 +24,3 @@ function html_home_main($article_a, $bottom_article_a)
     return ob_get_clean();
 }
 
-function form_background($bg_color)
-{
-    $html = <<< HTML
-     <form method="POST">
-    <label>Sélectionnez la couleur du fond :</label>
-    <select id="bg_color" name="bg_color" value=$bg_color>
-        <option value="lightskyblue">Blue ciel </option>
-        <option value="black">Noir</option>
-        <option value="grey">Gris</option>
-    </select>
-    <button name="set_color" type="submit">Changer</button>
-</form>
-HTML;
-
-    return $html;
-}
-
-
-function style_sheet($bg_color=DEFAULT_BGCOLOR)
-{
-    $html = <<< HTML
-<style>
-header, footer
-{
-background-color: $bg_color;
-}
-</style>
-
-HTML;
-    return $html;
-}

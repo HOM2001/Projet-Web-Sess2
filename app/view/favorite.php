@@ -1,22 +1,24 @@
 <?php
 
-function html_favorite($favorites, $articles)
+function html_main_favorite($article_a)
 {
+ob_start();
+?>
+<section class="favorite">
+    <form method="post">
+    <?php
+    foreach ($article_a as $art_a) {
+        $title = $art_a['title'];
+        $art_id = $art_a['id'];
 
-
-    ob_start();
-    if (empty($favorites)) {
-        echo '<p>Aucun article ajouté aux favoris pour le moment.</p>';
-    } else {
-        foreach ($articles as $id => $title) {
-            echo '<div>';
-            echo '<strong>' . $title . '</strong>';
-            echo ' <a href="index.php?action=addFavorite&id=' . $id . '&title=' . urlencode($title) . '">Ajouter aux favoris</a>';
-            echo '</div>';
-        }
+        echo <<< HTML
+              
+                <input type="checkbox" id=$art_id name="choix" value="option1">
+                <label for="option1">$title</label><br>
+</form>
+</section>
+HTML;
     }
-    echo '</ul>';
-
-    return ob_get_clean();
-
 }
+
+
