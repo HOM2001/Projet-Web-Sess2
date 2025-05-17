@@ -6,9 +6,16 @@
  */
 function ctrl_head()
 {
+
     // get user info
-    $user_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
-    $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+    if(AUTH_METHOD === "CSV"){
+        $user_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
+        $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+    }elseif(AUTH_METHOD === "API"){
+        $user_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
+        $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+    }
+
     if (isset($_POST['set_color'])) {
         $_SESSION['bg_color'] = $_POST['bg_color'];
     }else{

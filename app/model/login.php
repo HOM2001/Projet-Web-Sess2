@@ -38,23 +38,25 @@ function login_CSV($inputname, $inputpw)
 }
 function login_API($inputname, $inputpw)
 {
-
+try {
     $login_api = "http://playground.burotix.be/login/?";
     $api_param = [
-        "login"   => $inputname,
-        "passwd"  => $inputpw,
+        "login" => $inputname,
+        "passwd" => $inputpw,
     ];
     $link = $login_api . http_build_query($api_param);
     $json_string = file_get_contents($link);
     $auth_a = json_decode($json_string, true);
 
-    if( ! $auth_a['identified'])
-    {
+    if (!$auth_a['identified']) {
         // user not identified
-        return false;
+        return array(false,null,null);
     }
 
     // user identified
-    echo "<div>Vous êtes {$auth_a['name']} avec le rôle : {$auth_a['role']}</div>";
-    return true;
+    return array(true, $auth_a['name'], $auth_a['role']);
+}catch (Exception $e) {
+    echo "Problem while reading file login.csv : " . $e->getMessage();
+    return array(false, null, null);
+}
 }

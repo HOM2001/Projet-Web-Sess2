@@ -4,11 +4,11 @@
  */
 const SERVER = ""; // school or home
 
-const DATABASE_TYPE = "SQL";
+const DATABASE_TYPE = "MYSQL"; // MYSQL OR MARIADB
 
 const DATEBASE_NAME = "press_2024_v03";
 
-const AUTH_METHOD = "CSV"; // CSV or API
+const AUTH_METHOD = "API"; // CSV or API
 
 switch (SERVER) {
     case "home":

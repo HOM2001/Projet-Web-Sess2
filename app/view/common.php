@@ -3,7 +3,7 @@
  * Display a static menu with the link => head
  * display our group name and our indivudials names
  */
-function html_head($menu_a = [], $user_id = "", $user_role = "",$banner="")
+function html_head($menu_a = [], $user_id ="", $user_role = "",$banner="")
 {
     $debug = false;
     ob_start();
@@ -70,8 +70,7 @@ HTML;
 
 
 ?>
-
-        Welcome, <?= $user_id ?> (<?= $user_role ?>).
+     Welcome <?=$user_id?> (<?=$user_role?>)
 
     </header>
     <main>
