@@ -19,7 +19,7 @@ function get_pdo()
 {
     static $pdo;
     if (empty($pdo)) {
-        $pdo = new PDO('mysql:host=localhost;dbname=4ipdw_2023', 'root', '');
+        $pdo = new PDO('mysql:host=localhost;dbname=press_2024_v03', 'root', '');
         $pdo->query("SET NAMES utf8");
     }
     return $pdo;
