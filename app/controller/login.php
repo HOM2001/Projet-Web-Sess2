@@ -14,7 +14,7 @@ function main_login()
     if ($login && $password) {
         list($valide, $_SESSION['id'], $_SESSION['role']) = check_login($login, $password);
         if ($valide) {
-            $msg = "Vous êtes connecté, bienvenue";
+            $msg = "Vous êtes connecté, bienvenue " . $_SESSION['id'] . ", vous êtes l'". $_SESSION['role'] . " du site! ";
             setcookie("name", $_SESSION['id'], time() + 60 * 60 * 24);
         } else {
             setcookie('id', 0, 0, "/");

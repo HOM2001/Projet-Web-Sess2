@@ -8,13 +8,9 @@ function ctrl_head()
 {
 
     // get user info
-    if(AUTH_METHOD === "CSV"){
-        $user_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
-        $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
-    }elseif(AUTH_METHOD === "API"){
-        $user_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
-        $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
-    }
+    $user_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
+    $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+
 
     if (isset($_POST['set_color'])) {
         $_SESSION['bg_color'] = $_POST['bg_color'];
@@ -28,7 +24,6 @@ function ctrl_head()
     }else{
         $_SESSION['text_font'] = DEFAULT_FONT;
     }
-
     $font = $_SESSION['text_font'];
 
     if(isset($_POST['set_size'])){
