@@ -10,7 +10,7 @@ function html_home_main($article_a, $bottom_article_a)
 
     ob_start();
     ?>
-
+<div class="container-fluid mb-3">
     <section class="breaking">
         <article>
 
@@ -18,6 +18,7 @@ function html_home_main($article_a, $bottom_article_a)
             <h2><?= $hook ?></h2>
         </article>
     </section>
+</div>
     <?php
     echo html_all_articles_main($bottom_article_a);
 

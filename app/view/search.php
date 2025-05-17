@@ -3,6 +3,7 @@ function html_search_form($kw = '', $limite = LIMIT_ARTICLES, $date_min = '', $d
 {
     return <<<HTML
     <form method="post">
+    <div class="container-fluid mb-3">
         <label>Introduisez votre mot-clé</label>
         <input name="kw" type="text" value="$kw">
         <br>
@@ -20,8 +21,8 @@ function html_search_form($kw = '', $limite = LIMIT_ARTICLES, $date_min = '', $d
         <span id="slider-value"> $readtime minutes </span>
         <br>
         <button name="search">Rechercher</button>
+    </div>
     </form>
-
     <script src="../../public/js/internal/detail.js"></script>
       
 HTML;
