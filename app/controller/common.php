@@ -12,25 +12,28 @@ function ctrl_head()
     $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 
 
-    if (isset($_POST['set_color'])) {
-        $_SESSION['bg_color'] = $_POST['bg_color'];
-    }else{
+
+    if (!isset($_SESSION['bg_color'])) {
         $_SESSION['bg_color'] = DEFAULT_BGCOLOR;
     }
-    $bg_color = $_SESSION['bg_color'];
-
-    if(isset($_POST['set_font'])){
-        $_SESSION['text_font'] = $_POST['text_font'];
-    }else{
+    if (!isset($_SESSION['text_font'])) {
         $_SESSION['text_font'] = DEFAULT_FONT;
     }
-    $font = $_SESSION['text_font'];
-
-    if(isset($_POST['set_size'])){
-        $_SESSION['text_size'] = $_POST['text_size'];
-    }else{
+    if (!isset($_SESSION['text_size'])) {
         $_SESSION['text_size'] = DEFAULT_FONT_SIZE;
     }
+
+    if (isset($_POST['set_color'])) {
+            $_SESSION['bg_color'] = $_POST['bg_color'];
+        }
+        if (isset($_POST['set_font'])) {
+            $_SESSION['text_font'] = $_POST['text_font'];
+        }
+        if (isset($_POST['set_size'])) {
+            $_SESSION['text_size'] = $_POST['text_size'];
+        }
+        $bg_color = $_SESSION['bg_color'];
+    $font = $_SESSION['text_font'];
     $font_size = $_SESSION['text_size'];
    // get menu array from csv
     $menu_csv = get_menu_csv();

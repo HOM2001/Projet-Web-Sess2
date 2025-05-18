@@ -170,6 +170,7 @@ function style_sheet_font($text_font= DEFAULT_FONT){
  </style>
     
 HTML;
+    ;
     return $html;
 }
 function style_sheet_font_size($font_size = DEFAULT_FONT_SIZE) {
@@ -177,7 +178,7 @@ function style_sheet_font_size($font_size = DEFAULT_FONT_SIZE) {
     <style>
         body {
             font-size: {$font_size}px;
-        }
+        } 
     </style>
 HTML;
 
