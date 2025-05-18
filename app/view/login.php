@@ -29,15 +29,17 @@ function html_unidentified_user()
 function html_unidentified_user_CSV()
 {
     return <<< HTML
-<br>
-    <div class="container-fluid mb-3">
-        Connectez-vous :
-        <br>Identifiant
-        <input type="text" name="identifier" required> 
-        <br>Mot de passe
-        <input type="text" name="password" required>
-        <br>
-        <button type="submit">log in</button>
+    <div class="col-mb-3">
+        <h3>Connectez-vous</h3>
+        <label for="identifier" class="form-label">Votre Identifiant</label>
+        <input type="text" class="form-control" name="identifier" placeholder="Identifiant">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Connexion</button>
     </div>
 HTML;
 
@@ -45,27 +47,26 @@ HTML;
 function html_unidentified_user_API()
 {
     return <<< HTML
-<!--     <div class="container-fluid mb-3">
-        Connectez-vous :
-        <br>Votre role 
-        <input type="text" name="identifier" required> 
-        <br>Mot de passe
-        <input type="text" name="password" required>
-        <br>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-    </div> -->
-    <div class="mb-3">
+    <br>
         <h3>Connectez-vous</h3>
-        <label for="identifier" class="form-label">Votre Role</label>
-        <input type="text" class="form-control" name="identifier" placeholder="Role">
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Mot de passe</label>
-        <input type="password" class="form-control" name="password" placeholder="Mot de passe">
-    </div>
-    <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <label for="identifier" class="form-label">Votre Role</label>
+                <input type="text" class="form-control" name="identifier" placeholder="Role">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <button type="submit" class="btn btn-primary">Connexion</button>
+            </div>
+        </div>
 HTML;
 }
 
@@ -74,6 +75,7 @@ function html_link_home()
 {
     ob_start();
     ?>
+    <br>
     <div class="container-fluid mb-3">
         <p>
             <a href=".">Aller à la page principale</a>
@@ -88,7 +90,7 @@ function html_open_form()
     ob_start();
     ?>
     <form method="post">
-        <div class="container-fluid mb-3">
+        <div class="container">
     <?php
     return ob_get_clean();
 }

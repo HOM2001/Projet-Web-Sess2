@@ -29,6 +29,7 @@ function html_all_articles_main($article_a)
 {
     ob_start();
     ?>
+    <br>
     <div class="container-fluid mb-3">
         <section class="other">
             <?php
@@ -38,10 +39,12 @@ function html_all_articles_main($article_a)
                 $hook = $art_a['hook'];
 
                 echo <<< HTML
-                    <article>
+                <div class="card">
+                    <article class="article">
                         <a href="?page=article&art_id=$art_id"><h1>$title</h1></a>
                         <h2> $hook</h2>
                     </article>
+                </div><br>
 HTML;
             }
             ?>

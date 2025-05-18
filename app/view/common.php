@@ -19,12 +19,12 @@ function html_head($menu_a = [], $user_id ="", $user_role = "",$banner="")
         <link rel="stylesheet" href="../public/css/internal/main.css">
 
     </head>
-    <body>
-    <?php
-    echo style_sheet_bg_color($_SESSION['bg_color']);
-    echo style_sheet_font($_SESSION['text_font']);
-    echo style_sheet_font_size($_SESSION['text_size']);
-    ?>
+    <body class="d-flex flex-column min-vh-100">
+        <?php
+        echo style_sheet_bg_color($_SESSION['bg_color']);
+        echo style_sheet_font($_SESSION['text_font']);
+        echo style_sheet_font_size($_SESSION['text_size']);
+        ?>
     <header>
       <?php
 
@@ -240,18 +240,17 @@ HTML;
     return $html;
 }
 
-
-
-
 function html_foot()
 {
     ob_start();
     ?>
     </main>
-    <footer>
-        <hr/>
-        Groupe G : Hamid Owaiss , Imane Amane
-
+    <footer class="mt-auto">
+        <div class="container">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            </ul>
+        </div>
+        <p class="text-center text-muted">Groupe G : Hamid Owaiss , Imane Amane</p>
     </footer>
     <script src="../../public/js/internal/detail.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

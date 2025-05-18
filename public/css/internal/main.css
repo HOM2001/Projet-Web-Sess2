@@ -1,14 +1,9 @@
 html{
     color : white;
 }
-header, footer {
-    background-color: lightskyblue;
-
-}
 
 body {
     text-align: center;
-
 
 }
 
@@ -25,7 +20,6 @@ a {
     background-color: coral
 }
 
-.other {
+.article {
     background-color: lightgrey
 }
-
