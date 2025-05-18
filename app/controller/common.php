@@ -39,14 +39,13 @@ function ctrl_head()
     $menu_csv = get_menu_csv();
 
     return join("\n", [
+
         html_head($menu_csv, $user_id, $user_role),
+        form_start(),
         form_background($bg_color),
         form_font($font),
         form_font_size($font_size),
-
-
-
-
+        form_end()
     ]);
 
 
