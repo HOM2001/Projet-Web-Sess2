@@ -38,12 +38,13 @@ function html_all_articles_main($article_a)
                 $art_id = $art_a['id'];
                 $hook = $art_a['hook'];
 
+
                 echo <<< HTML
                 <div class="card">
                     <article class="article">
                         <a href="?page=article&art_id=$art_id"><h1>$title</h1></a>
                         <h2> $hook</h2>
-                    </article>
+                        </article>
                 </div><br>
 HTML;
             }
