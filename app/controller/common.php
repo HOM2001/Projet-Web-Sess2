@@ -40,7 +40,7 @@ function ctrl_head()
 
     return join("\n", [
 
-        html_head($menu_csv, $user_id, $user_role),
+        html_head($menu_csv, $user_id, $user_role,banner()),
         form_start(),
         form_background($bg_color),
         form_font($font),

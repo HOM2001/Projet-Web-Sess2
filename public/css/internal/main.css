@@ -23,3 +23,6 @@ a {
 .article {
     background-color: lightgrey
 }
+footer {
+    color: white !important;
+}
