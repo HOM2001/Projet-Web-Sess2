@@ -2,87 +2,83 @@
 function html_search_form($kw = '', $limite = LIMIT_ARTICLES, $date_min = '', $date_max = '', $readtime = '')
 {
     return <<<HTML
+<div class="search-container">
+    <h4>Recherche</h4>
+    <form id="searchForm" class="search-form">
+        <div class="form-group">
+            <input name="kw" type="text" placeholder="Mot-clé" value="$kw" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Résultats par page:</label>
+            <select name="limit" class="form-control">
+                <option value="5" " . ($limite == 5 ? "selected" : "") . ">5</option>
+                <option value="10" " . ($limite == 10 ? "selected" : "") . ">10</option>
+                <option value="20" " . ($limite == 20 ? "selected" : "") . ">20</option>
+                <option value="50" " . ($limite == 50 ? "selected" : "") . ">50</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Date:</label>
+            <input type="date" name="date_min" value="$date_min" class="form-control">
+            <span>à</span>
+            <input type="date" name="date_max" value="$date_max" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </form>
+</div>
+
+<div id="search-results">
+    <p>Saisissez un mot-clé pour lancer une recherche.</p>
+</div>
+
 <style>
-    .spa-layout {
+    .search-container {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-form {
         display: flex;
-        flex-direction: column;
-        height: 100vh;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: flex-end;
     }
-    .spa-header, .spa-footer {
-        background-color: #eee;
-        padding: 1rem;
-        text-align: center;
-    }
-    .spa-body {
-        display: flex;
+
+    .form-group {
+        margin-bottom: 10px;
         flex: 1;
+        min-width: 200px;
     }
-    .sidebar {
-        width: 15%;
-        padding: 1rem;
-        background-color: #d4f8d4;
-        box-sizing: border-box;
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
     }
-    .sidebar.right {
-        background-color: #f8d4d4;
+
+    .btn-primary {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
     }
-    .main-content {
-        flex: 1;
-        padding: 1rem;
-        background-color: #d4e7f8;
-        overflow-y: auto;
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
     }
 </style>
 
-<div class="spa-layout">
-    <div class="spa-header">Header</div>
-    <div class="spa-body">
-        <!-- Menu latéral 1 -->
-        <div class="sidebar">
-            <h4>Recherche</h4>
-            <form id="searchForm">
-                <label>Mot-clé :</label><br>
-                <input name="kw" type="text" value="$kw"><br><br>
-
-                <label>Nombre de résultats :</label><br>
-                <input name="limit" type="number" value="$limite"><br><br>
-
-                <label>Date minimale :</label><br>
-                <input type="date" name="date_min" value="$date_min"><br><br>
-
-                <label>Date maximale :</label><br>
-                <input type="date" name="date_max" value="$date_max"><br><br>
-
-                <label>Temps de lecture :</label><br>
-                <input type="range" name="reading-time" min="1" max="60" value="$readtime" class="slider">
-                <span id="slider-value">$readtime minutes</span><br><br>
-
-                <button type="submit">Rechercher</button>
-            </form>
-        </div>
-
-        <!-- Menu latéral 2 (peut être vide ou contenu avancé) -->
-        <div class="sidebar right">
-            <h4>Options</h4>
-            <!-- À remplir plus tard si besoin -->
-        </div>
-
-        <!-- Zone de contenu principal -->
-        <div class="main-content" id="search-results">
-            <p>Les résultats de votre recherche apparaîtront ici.</p>
-        </div>
-    </div>
-    <div class="spa-footer">Footer</div>
-</div>
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('input[name="reading-time"]');
-    const sliderValue = document.getElementById('slider-value');
-    slider.addEventListener('input', () => {
-        sliderValue.textContent = slider.value + ' minutes';
-    });
-
     const form = document.getElementById('searchForm');
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -92,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             body: formData
         })
-        .then(response => response.text()) // ou .json() si JSON
+        .then(response => response.text())
         .then(data => {
             document.getElementById('search-results').innerHTML = data;
         })
