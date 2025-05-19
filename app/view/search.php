@@ -16,15 +16,23 @@ function html_search_form($kw = '', $limite = LIMIT_ARTICLES, $date_min = '', $d
         <label for="date_max">Date maximale :</label>
         <input type="date" id="date_max" name="date_max" value="$date_max">
         <br>
-        <label for="reading-time">Temps de lecture </label>
+        <label for="reading-time">Temps de lecture :</label>
         <input type="range" id="reading-time" name="reading-time" min="1" max="60" value="$readtime" class="slider">
-        <span id="slider-value"> $readtime minutes </span>
+        <span id="slider-value">$readtime minutes</span>
         <br>
         <button name="search">Rechercher</button>
     </div>
     </form>
-    <script src="../../public/js/internal/detail.js"></script>
-      
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const slider = document.getElementById('reading-time');
+        const sliderValue = document.getElementById('slider-value');
+
+        slider.addEventListener('input', function () {
+            sliderValue.textContent = this.value + ' minutes';
+        });
+    });
+    </script>
 HTML;
 }
 ?>
