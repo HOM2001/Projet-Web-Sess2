@@ -3,6 +3,22 @@
  * Display a static menu with the link => head
  * display our group name and our indivudials names
  */
+ function load_banner_data($url) {
+     $ch = curl_init($url);
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+     curl_setopt($ch, CURLOPT_TIMEOUT, 5); // max 5s
+     $response = curl_exec($ch);
+     $err = curl_error($ch);
+     curl_close($ch);
+
+     if ($err || !$response) {
+         return null;
+     }
+
+     $data = json_decode($response, true);
+     return $data;
+ }
+
 function html_head($menu_a = [], $user_id ="", $user_role = "",$banner="")
 {
     $debug = false;
@@ -25,6 +41,10 @@ function html_head($menu_a = [], $user_id ="", $user_role = "",$banner="")
         echo style_sheet_font($_SESSION['text_font']);
         echo style_sheet_font_size($_SESSION['text_size']);
         ?>
+
+
+
+
     <header>
       <?php
 
@@ -45,7 +65,10 @@ echo <<< HTML
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="#">LAST NEWS</a>
+    <a class="navbar-brand" href="#">
+        <img src="\Projet-Web-Sess2\public\media\Last newsCoupe.png" alt="Logo" style="height: 70px; width: 300px;">
+    </a>
+
 
     <!-- Bouton hamburger -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -95,6 +118,9 @@ echo <<< HTML
                 <i class="bi bi-gear"></i>
             </button>
         </li>
+        <li class="nav-item ms-2">
+              <a href="?page=login" class="btn btn-dark">Login</a>
+          </li>
       </ul>
     </div>
   </div>
@@ -246,13 +272,14 @@ function html_foot()
     ob_start();
     ?>
     </main>
-    <footer class="mt-auto">
+    <footer class="mt-auto" style="color: white;">
         <div class="container">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             </ul>
         </div>
-        <p class="text-center text-muted">Groupe G : Hamid Owaiss , Imane Amane</p>
+        <p class="text-center">Groupe G : Hamid Owaiss , Imane Amane</p>
     </footer>
+
     <script src="../../public/js/internal/detail.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
