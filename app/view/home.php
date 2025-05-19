@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * Display articles of the home page
+ */
 function html_home_main(array $article_a, array $bottom_article_a): string
 {
     $title = htmlspecialchars($article_a['title'] ?? 'Titre inconnu');

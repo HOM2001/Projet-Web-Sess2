@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * Get all the article in the database
+ */
 
 function get_article($article_id)
 {

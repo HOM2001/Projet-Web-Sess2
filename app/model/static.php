@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * Getting the static via a html files
+ */
 function get_static_content($name)
 {
     try

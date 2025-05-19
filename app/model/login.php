@@ -1,8 +1,8 @@
 <?php
 /*
- * check if the username in the file is true and false
+ * check the login from the CSV file or from the Json in the link
+ * return true if user and password are same otherwise false
  */
-
 
 function check_login($login, $password)
 {

@@ -1,4 +1,7 @@
 <?php
+/*
+ * Display a cart for add favorite article in the cart
+ */
 function html_main_favorite() {
     $articles = get_articles();
     ob_start();

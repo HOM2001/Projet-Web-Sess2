@@ -1,7 +1,7 @@
 <?php
 
 /*
- * return a array of the item in the file
+ * Get all the common item
  */
 function get_menu_csv()
 {

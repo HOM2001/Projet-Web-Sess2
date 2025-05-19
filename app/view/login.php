@@ -1,7 +1,6 @@
 <?php
 /*
- * display the login , log out , a link to home
- * close and open the form
+ * Create a form with login log out option and close it then display it
  */
 
 

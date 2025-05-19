@@ -1,4 +1,7 @@
 <?php
+/*
+ * Get all the article with the search options in the database
+ */
 function get_article_by_search($kw = '', $limit = LIMIT_ARTICLES, $date_min = '', $date_max = '', $readtime = '') {
 $sql = <<<SQL
     SELECT

@@ -1,4 +1,7 @@
 <?php
+/*
+ * Display the all  main articles
+ */
 
 function html_article_main($article_a)
 {

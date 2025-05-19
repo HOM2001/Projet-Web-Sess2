@@ -1,26 +1,22 @@
 <?php
+
 /*
- * Database setting
+ * Database type : SQL or JSON
  */
-const SERVER = ""; // school or home
+const DATABASE_TYPE = "SQL";
 
-const DATABASE_TYPE = "MYSQL"; // MYSQL OR MARIADB
+/*
+* AUTH_METHOD : CSV or API
+ *
+*/
+const AUTH_METHOD = "CSV"; //
 
-const DATEBASE_NAME = "press_2024_v03";
 
-const AUTH_METHOD = "CSV"; // CSV or API
-
-switch (SERVER) {
-    case "home":
-        define("DATABASE_PORT", 3307);
-        define("DATABASE_USERNAME", "root");
-        define("DATEBASE_PASSWORD", "");
+switch (DATABASE_TYPE) {
+    case "SQL":
+        define("DATABASE_NAME", "press_2024_v03");
         break;
-    case "school" :
-        define("DATABASE_PORT", 3308);
-        define("DATABASE_USERNAME", "root");
-        define("DATABASE_PASSWORD", "");
-        break;
-
-
+        case "JSON":
+            define("DATABASE_NAME", "../assets/database/article.json");
+            break;
 }
