@@ -12,7 +12,7 @@ $sql = <<<SQL
     WHERE title_art LIKE :kw_string
     AND (:date_min = '' OR date_art >= :date_min)
     AND (:date_max = '' OR date_art <= :date_max)
-    AND (:readtime = '' OR readtime_art <= :readtime)
+    AND (:readtime = '' OR readtime_art = :readtime)
     ORDER BY ident_art DESC
     LIMIT :limit
     SQL;
