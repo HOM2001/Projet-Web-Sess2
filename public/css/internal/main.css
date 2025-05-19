@@ -58,14 +58,12 @@ a:hover {
 .banner-pub, div[style*="background-image"] {
   width: 100%;
   height: 180px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
+  background-repeat: repeat-x !important;
   transition: all 0.4s ease;
   cursor: pointer;
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -93,9 +91,7 @@ a:hover {
 }
 
 .banner-pub img, div[style*="background-image"] img {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
   transition: transform 0.7s ease;
 }
 
@@ -152,13 +148,6 @@ a:hover {
   transform: translateY(-50%) translateX(0);
 }
 
-/* S'assurer que les images de fond existantes sont préservées */
-div[style*="background-image"] {
-  /* Préserve l'image de fond définie en ligne */
-  background-image: inherit !important;
-}
-
-/* Effet de brillance qui balaye la bannière */
 .banner-pub .shine, div[style*="background-image"] .shine {
   position: absolute;
   top: 0;
@@ -178,7 +167,6 @@ div[style*="background-image"] {
   100% {left: 150%;}
 }
 
-/* Navbar améliorée */
 .navbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
@@ -201,7 +189,6 @@ div[style*="background-image"] {
   transform: translateY(-1px);
 }
 
-/* Style spécifique pour les articles */
 .article {
   margin-bottom: 2rem;
   border: none;
@@ -217,7 +204,6 @@ div[style*="background-image"] {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-/* Titres d'article */
 .article h1 {
   font-size: 2.2rem;
   font-weight: 700;
@@ -237,7 +223,6 @@ div[style*="background-image"] {
   line-height: 1.4;
 }
 
-/* Image de l'article */
 .media_article {
   margin: 1.5rem 0 2rem;
   position: relative;
@@ -257,7 +242,6 @@ div[style*="background-image"] {
   transform: scale(1.02);
 }
 
-/* Date de publication */
 .article div:nth-of-type(1) {
   font-size: 0.9rem;
   color: #6c757d;
@@ -269,7 +253,6 @@ div[style*="background-image"] {
   font-weight: 500;
 }
 
-/* Contenu de l'article */
 .article div:nth-of-type(2) {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -282,7 +265,6 @@ div[style*="background-image"] {
   margin-bottom: 1.5rem;
 }
 
-/* Liste des articles */
 .other .card {
   border: none;
   background-color: #fff;
@@ -337,7 +319,6 @@ div[style*="background-image"] {
   color: white;
 }
 
-/* Footer */
 footer {
   background-color: #212529;
   color: white !important;
@@ -351,7 +332,6 @@ footer p {
   margin-bottom: 0.5rem;
 }
 
-/* Formulaire de réglages */
 #form_settings {
   background-color: rgba(0, 0, 0, 0.02);
   border-radius: 0.75rem;

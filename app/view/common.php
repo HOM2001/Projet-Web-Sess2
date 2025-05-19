@@ -57,8 +57,8 @@ function html_head($menu_a = [], $user_id ="", $user_role = "",$banner="")
            if ($banner && isset($banner['banner_4IPDW'])){
 
     echo <<<HTML
-<div style="background-image: url('{$banner['banner_4IPDW']['background_image']}'); color: {$banner['banner_4IPDW']['color']}; background-repeat: no-repeat">
-    <a href="{$banner['banner_4IPDW']['link']}">
+<div style="background-image: url('{$banner['banner_4IPDW']['background_image']}'); color: {$banner['banner_4IPDW']['color']};">
+    <a class="stretched-link" href="{$banner['banner_4IPDW']['link']}">
         <img src="{$banner['banner_4IPDW']['image']}" alt="Burotix">
     </a>
     <p>{$banner['banner_4IPDW']['text']}</p>
