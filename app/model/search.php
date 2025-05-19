@@ -12,7 +12,7 @@ $sql = <<<SQL
     WHERE title_art LIKE :kw_string
     AND (:date_min = '' OR date_art >= :date_min)
     AND (:date_max = '' OR date_art <= :date_max)
-    AND (:readtime = '' OR readtime_art = :readtime)
+    AND (:readtime = '' OR readtime_art <= :readtime)
     ORDER BY ident_art DESC
     LIMIT :limit
     SQL;
@@ -21,7 +21,7 @@ $sql = <<<SQL
     $stmt = $pdo->prepare($sql);
     $kw_string = "%$kw%";
     $stmt->bindValue(':kw_string', $kw_string, PDO::PARAM_STR);
-    $stmt->bindValue(':date_min', $date_min ?: date('Y-m-d'), PDO::PARAM_STR);
+    $stmt->bindValue(':date_min', $date_min ?: '1900-01-01', PDO::PARAM_STR);
     $stmt->bindValue(':date_max', $date_max ?: date('Y-m-d'), PDO::PARAM_STR);
     $stmt->bindValue(':readtime', $readtime, PDO::PARAM_INT);
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
