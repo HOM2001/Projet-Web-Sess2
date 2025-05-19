@@ -35,6 +35,11 @@ function html_head($menu_a = [], $user_id ="", $user_role = "",$banner="")
         <link rel="stylesheet" href="../public/css/internal/main.css">
 
     </head>
+    <style>
+        body{
+            border : thick;
+        }
+    </style>
     <body class="d-flex flex-column min-vh-100">
         <?php
         echo style_sheet_bg_color($_SESSION['bg_color']);
@@ -235,6 +240,24 @@ HTML;
 
     return $html;
 }
+function form_border($border)
+{
+    $html = <<< HTML
+    <div class="container-fluid mb-3">
+        <form method="POST">
+            <label>Sélectionnez la couleur du fond :</label>
+            <select id="border" name="border">
+                <option value="non" " . ($border === 'lightskyblue' ? 'selected' : '') . ">Sans bordure</option>
+                <option value="thick" " . ($border === 'black' ? 'selected' : '') . ">Fine bordure</option>
+                <option value="thin" " . ($border === 'grey' ? 'selected' : '') . ">Epaisse bordure</option>
+            </select>
+            <button name="set_border" type="submit">Changer</button>
+        </form>
+    </div>
+HTML;
+
+    return $html;
+}
 
 function style_sheet_bg_color($bg_color=DEFAULT_BGCOLOR)
 {
@@ -273,6 +296,20 @@ HTML;
 
     return $html;
 }
+function style_sheet_border($border=DEFAULT_BORDER)
+{
+    $html = <<< HTML
+<style>
+body
+{
+border : $border;
+}
+</style>
+
+HTML;
+    return $html;
+}
+
 
 function html_foot()
 {
