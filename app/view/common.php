@@ -45,6 +45,7 @@ function html_head($menu_a = [], $user_id ="", $user_role = "",$banner="")
         echo style_sheet_bg_color($_SESSION['bg_color']);
         echo style_sheet_font($_SESSION['text_font']);
         echo style_sheet_font_size($_SESSION['text_size']);
+        echo style_sheet_border($_SESSION['border']);
         ?>
 
 
@@ -228,9 +229,9 @@ function form_font_size($font_size)
         <form method="POST">
             <label>Sélectionnez la taille du texte :</label>
             <select id="text_size" name="text_size">
-                <option value="10px" " . ($font_size === '10px' ? 'selected' : '') . ">10 pixel</option>
-                <option value="14px" " . ($font_size === '14px' ? 'selected' : '') . ">14 pixel</option>
-                <option value="18px" " . ($font_size === '18px' ? 'selected' : '') . ">18 pixel</option>
+                <option value="10" " . ($font_size === '10' ? 'selected' : '') . ">10 pixel</option>
+                <option value="14" " . ($font_size === '14' ? 'selected' : '') . ">14 pixel</option>
+                <option value="18" " . ($font_size === '18' ? 'selected' : '') . ">18 pixel</option>
             </select>
             <button name="set_size" type="submit">Changer</button>
         </form>
@@ -244,11 +245,11 @@ function form_border($border)
     $html = <<< HTML
     <div class="container-fluid mb-3">
         <form method="POST">
-            <label>Sélectionnez la couleur du fond :</label>
+            <label>Sélectionnez le type de bordure :</label>
             <select id="border" name="border">
-                <option value="non" " . ($border === 'lightskyblue' ? 'selected' : '') . ">Sans bordure</option>
-                <option value="thick" " . ($border === 'black' ? 'selected' : '') . ">Fine bordure</option>
-                <option value="thin" " . ($border === 'grey' ? 'selected' : '') . ">Epaisse bordure</option>
+                <option value="none" " . ($border === 'none' ? 'selected' : '') . ">Sans bordure</option>
+                <option value="thin" " . ($border === 'thin' ? 'selected' : '') . ">Fine bordure</option>
+                <option value="thick" " . ($border === 'thick' ? 'selected' : '') . ">Epaisse bordure</option>
             </select>
             <button name="set_border" type="submit">Changer</button>
         </form>
@@ -295,20 +296,20 @@ HTML;
 
     return $html;
 }
-function style_sheet_border($border=DEFAULT_BORDER)
+function style_sheet_border($border = DEFAULT_BORDER)
 {
+    $border_style = ($border === 'none') ? 'none' : "$border solid black"; // Ajoute un style par défaut
+
     $html = <<< HTML
 <style>
-body
-{
-border : $border;
+main {
+    border: $border_style;
 }
 </style>
-
 HTML;
+
     return $html;
 }
-
 
 function html_foot()
 {

@@ -41,7 +41,7 @@ function ctrl_head()
         $border = $_SESSION['border'];
         $bg_color = $_SESSION['bg_color'];
     $font = $_SESSION['text_font'];
-    $font_size = $_SESSION['text_size'];
+    $font_size = $_SESSION['text_size']."px";
    // get menu array from csv
     $menu_csv = get_menu_csv();
 
