@@ -1,7 +1,4 @@
 <?php
-/*
- * Display the search form with keyword , limit , date min , date max and reading time
- */
 function html_search_form($kw = '', $limite = LIMIT_ARTICLES, $date_min = '', $date_max = '', $readtime = '')
 {
     return <<<HTML
@@ -40,7 +37,7 @@ function html_search_form($kw = '', $limite = LIMIT_ARTICLES, $date_min = '', $d
 <div class="spa-layout">
     <div class="spa-header">Header</div>
     <div class="spa-body">
-      
+        <!-- Menu latéral 1 -->
         <div class="sidebar">
             <h4>Recherche</h4>
             <form id="searchForm">
@@ -64,13 +61,13 @@ function html_search_form($kw = '', $limite = LIMIT_ARTICLES, $date_min = '', $d
             </form>
         </div>
 
-      
+        <!-- Menu latéral 2 (peut être vide ou contenu avancé) -->
         <div class="sidebar right">
             <h4>Options</h4>
-           
+            <!-- À remplir plus tard si besoin -->
         </div>
 
-      
+        <!-- Zone de contenu principal -->
         <div class="main-content" id="search-results">
             <p>Les résultats de votre recherche apparaîtront ici.</p>
         </div>
@@ -90,17 +87,15 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-       fetch('../app/controller/search.php', {
-    method: "POST",
-    body: formData
-})
-.then(response => response.text()) // Ou .json() si le serveur renvoie du JSON
-.then(data => {
-    document.getElementById("search-results").innerHTML = data;
-})
-.catch(error => {
-    console.error("Erreur lors de la requête :", error);
-
+        const formData = new FormData(form);
+        fetch('rechercher_articles.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text()) // ou .json() si JSON
+        .then(data => {
+            document.getElementById('search-results').innerHTML = data;
+        })
         .catch(error => {
             document.getElementById('search-results').innerHTML = "<p>Erreur lors de la recherche.</p>";
             console.error(error);
