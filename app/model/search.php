@@ -21,8 +21,8 @@ $sql = <<<SQL
     $stmt = $pdo->prepare($sql);
     $kw_string = "%$kw%";
     $stmt->bindValue(':kw_string', $kw_string, PDO::PARAM_STR);
-    $stmt->bindValue(':date_min', $date_min ?: '2023-12-01', PDO::PARAM_STR);
-    $stmt->bindValue(':date_max', $date_max ?: date('2023-12-31'), PDO::PARAM_STR);
+    $stmt->bindValue(':date_min', $date_min ?: date('Y-m-d'), PDO::PARAM_STR);
+    $stmt->bindValue(':date_max', $date_max ?: date('Y-m-d'), PDO::PARAM_STR);
     $stmt->bindValue(':readtime', $readtime, PDO::PARAM_INT);
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
     $stmt->execute();
