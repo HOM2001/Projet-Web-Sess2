@@ -117,23 +117,27 @@ echo <<< HTML
         </li>
       </ul>
 
-      <!-- Engrenage avec options -->
       <ul class="navbar-nav">
         <li class="nav-item">
             <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#form_settings" aria-expanded="false" aria-controls="form_settings">
                 <i class="bi bi-gear"></i>
             </button>
         </li>
-       <?php if ($user_id): ?>
-           <li class="nav-item ms-2">
-               <a href="?page=home" class="btn btn-danger">Logout</a>
-           </li>
-       <?php else: ?>
-           <li class="nav-item ms-2">
-               <a href="?page=login" class="btn btn-dark">Login</a>
-           </li>
-       <?php endif; ?>
-
+HTML;
+       if ($user_id) {
+            echo <<< HTML
+               <li class="nav-item ms-2">
+                   <a href="?page=home" class="btn btn-danger">Logout</a>
+               </li>
+            HTML;
+       } else {
+            echo <<< HTML
+               <li class="nav-item ms-2">
+                   <a href="?page=login" class="btn btn-dark">Login</a>
+               </li>
+            HTML;
+       }
+   echo <<< HTML
       </ul>
     </div>
   </div>
