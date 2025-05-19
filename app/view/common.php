@@ -56,7 +56,7 @@ function html_head($menu_a = [], $user_id ="", $user_role = "",$banner="")
            if ($banner && isset($banner['banner_4IPDW'])){
 
     echo <<<HTML
-<div style="background-image: url('{$banner['banner_4IPDW']['background_image']}'); color: {$banner['banner_4IPDW']['color']};">
+<div style="background-image: url('{$banner['banner_4IPDW']['background_image']}'); color: {$banner['banner_4IPDW']['color']}; background-repeat: no-repeat">
     <a href="{$banner['banner_4IPDW']['link']}">
         <img src="{$banner['banner_4IPDW']['image']}" alt="Burotix">
     </a>
@@ -125,8 +125,11 @@ echo <<< HTML
 HTML;
        if ($user_id) {
             echo <<< HTML
+                <li class="nav-item ms-2">
+                    <p>Welcome $user_id ($user_role)</p>
+                </li>
                <li class="nav-item ms-2">
-                   <a href="?page=home" class="btn btn-danger">Logout</a>
+                   <a href="?page=login&action=logout" class="btn btn-danger">Logout</a>
                </li>
             HTML;
        } else {
@@ -145,14 +148,6 @@ HTML;
 
 
 
-?>
-
-<?php
-     if ($user_id || $user_role) {
-        echo <<< HTML
-            Welcome <?=$user_id?> (<?=$user_role?>)
-        HTML;
-}
 ?>
     </header>
     <main>
