@@ -118,9 +118,16 @@ echo <<< HTML
                 <i class="bi bi-gear"></i>
             </button>
         </li>
-        <li class="nav-item ms-2">
-              <a href="?page=login" class="btn btn-dark">Login</a>
-          </li>
+       <?php if ($user_id): ?>
+           <li class="nav-item ms-2">
+               <a href="?page=home" class="btn btn-danger">Logout</a>
+           </li>
+       <?php else: ?>
+           <li class="nav-item ms-2">
+               <a href="?page=login" class="btn btn-dark">Login</a>
+           </li>
+       <?php endif; ?>
+
       </ul>
     </div>
   </div>

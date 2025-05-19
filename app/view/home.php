@@ -24,12 +24,14 @@ function html_home_main(array $article_a, array $bottom_article_a): string
         <div class="card shadow-sm border-0">
             <a href="?page=article&art_id=<?= $art_id ?>" style="text-decoration: none; color: inherit;">
                 <?php
-                $img = !empty($article_a['image']) ? $article_a['image'] : 'path/to/default-image.jpg';
-                ?>
-                <img src="<?= htmlspecialchars($img) ?>"
-                     class="card-img-top"
-                     alt="Image principale"
-                     style="object-fit: cover; max-height: 260px; width: 100%;">
+               $img = !empty($article_a['image_name'])
+                   ? '../public/media/' . $article_a['image_name']
+                   : '../public/media/default.jpg';
+               ?>
+               <img src="<?= htmlspecialchars($img) ?>"
+                    class="card-img-top"
+                    alt="Image principale"
+                    style="object-fit: cover; max-height: 260px; width: 100%;">
                 <div class="card-body p-3">
                     <h3 class="card-title mb-2" style="font-size: 1.5rem;"><?= htmlspecialchars($title) ?></h3>
                     <p class="card-text mb-0" style="font-size: 1rem;"><?= htmlspecialchars($hook) ?></p>
@@ -69,8 +71,10 @@ function html_home_main(array $article_a, array $bottom_article_a): string
             <?php foreach ($bottom_article_a as $article): ?>
                 <?php
                     $title = htmlspecialchars($article['title']);
-                    $img = htmlspecialchars($article['image'] ?? 'default.jpg');
-                    $id = (int)($article['id'] ?? 0);
+$img = !empty($article['image_name'])
+            ? '../public/media/' . $article['image_name']
+            : '../public/media/default.jpg';
+                                       $id = (int)($article['id'] ?? 0);
                 ?>
                 <div class="col-md-6 mb-4">
                     <div class="card h-100">
